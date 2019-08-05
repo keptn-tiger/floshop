@@ -1,0 +1,13 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: floshop-dev-carts
+spec:
+  hosts:
+  - "carts.floshop-dev.104.154.223.163.xip.io"
+  gateways:
+  - floshop-dev-gateway
+  http:
+    - route:
+      - destination:
+          host: carts.floshop-dev.svc.cluster.local
