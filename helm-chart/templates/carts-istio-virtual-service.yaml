@@ -1,19 +1,22 @@
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
-  name: floshop-production-carts
+    name: floshop-production-carts
 spec:
-  hosts:
-  - "carts.floshop-production.104.154.223.163.xip.io"
-  gateways:
-  - floshop-production-gateway
-  http:
-    - route:
-      - destination:
-          host: carts.floshop-production.svc.cluster.local
-          subset: blue
-        weight: 0
-      - destination:
-          host: carts.floshop-production.svc.cluster.local
-          subset: green
-        weight: 100
+    hosts:
+        - carts.floshop-production.104.154.223.163.xip.io
+    gateways:
+        - floshop-production-gateway
+    http:
+        -
+            route:
+                -
+                    destination:
+                        host: carts.floshop-production.svc.cluster.local
+                        subset: blue
+                    weight: 100
+                -
+                    destination:
+                        host: carts.floshop-production.svc.cluster.local
+                        subset: green
+                    weight: 0
